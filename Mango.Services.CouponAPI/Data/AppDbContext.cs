@@ -12,4 +12,3 @@ namespace Mango.Services.CouponAPI.Data
         public DbSet<Coupon> Coupons { get; set; }
         }
     }
-}
