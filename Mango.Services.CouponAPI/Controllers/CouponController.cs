@@ -42,7 +42,14 @@ namespace Mango.Services.CouponAPI.Controllers
             try
             {
                 Coupon obj = _db.Coupons.First(u => u.CouponId == id); // select * from coupon where id = id
-                _response.Result = obj;
+                CouponDto couponDto = new CouponDto() 
+                { 
+                    CouponId = obj.CouponId,
+                    CouponCode = obj.CouponCode,
+                    DiscountAmount = obj.DiscountAmount,
+                    MinAmount = obj.MinAmount
+                };
+                _response.Result = couponDto;
             }
             catch (Exception ex)
             {
