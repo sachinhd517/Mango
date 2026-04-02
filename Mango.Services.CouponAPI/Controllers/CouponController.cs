@@ -66,6 +66,12 @@ namespace Mango.Services.CouponAPI.Controllers
             try
             {
                 Coupon obj = _db.Coupons.FirstOrDefault(u => u.CouponCode.ToLower() == code.ToLower()); // select * from coupon where id = id
+                if (obj == null)
+                {
+                    _response.IsSuccess = false;
+                    _response.Message = "Invalid Coupon Code";
+                    return _response;
+                }
                 _response.Result = _mapper.Map<CouponDto>(obj);
 
             }
