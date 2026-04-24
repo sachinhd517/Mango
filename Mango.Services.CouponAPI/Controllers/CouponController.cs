@@ -65,7 +65,7 @@ namespace Mango.Services.CouponAPI.Controllers
         {
             try
             {
-                Coupon obj = _db.Coupons.FirstOrDefault(u => u.CouponCode.ToLower() == code.ToLower()); // select * from coupon where id = id
+                Coupon obj = _db.Coupons.First(u => u.CouponCode.ToLower() == code.ToLower()); // select * from coupon where id = id
                 if (obj == null)
                 {
                     _response.IsSuccess = false;
